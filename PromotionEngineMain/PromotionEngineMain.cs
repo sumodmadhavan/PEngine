@@ -15,29 +15,30 @@ public class PromotionEngineMain
         int unitPrice = 0;
         PromotionEngineMain promotionEngineMain = new PromotionEngineMain();
 
-        Root root = promotionEngineMain.LoadPromoData();//load the promotype config to root object
+        Root ruleEngine = promotionEngineMain.LoadPromoData();//load the promotype config to ruleEngine object
 
-        unitPrice = promotionEngineMain.GetUnitPrice(sKUInputClass, root);// calculate unit price based on input
+        unitPrice = promotionEngineMain.GetUnitPrice(sKUInputClass, ruleEngine);// calculate unit price based on input
         return unitPrice;
     }
 
 
     #region Private Methods
 
-    private int GetUnitPrice(List<SKUInputClass> sKUInputClass, Root root)
+    //Ideally we can apply a strategy Pattern but it just complicate the current problem statement.
+    private int GetUnitPrice(List<SKUInputClass> sKUInputClass, Root ruleEngine)
     {
         int unitPrice = 0;
         //calculate Unit Price
         string promoType = string.Empty;
-
+        //O(n) in Time.    
         foreach (SKUInputClass skuCls in sKUInputClass)
         {
-            //SkuDataItem obj= root.skuData.Where(s => s.id == skuCls.Id);//returns price of one item
-            var priceUnit = root.skuData.Where(s => s.id == skuCls.Id)
+            //SkuDataItem obj= ruleEngine.skuData.Where(s => s.id == skuCls.Id);//returns price of one item
+            var priceUnit = ruleEngine.skuData.Where(s => s.id == skuCls.Id)
                             .Select(s => s.price).FirstOrDefault();//returns price of one item
-            var obj = root.skuData.Where(s => s.id == skuCls.Id).FirstOrDefault();
+            var skuDataItem = ruleEngine.skuData.Where(s => s.id == skuCls.Id).FirstOrDefault(); //Worse case O(n2)
 
-            SkuDataItem skuDataItem = (SkuDataItem)obj;
+            SkuDataItem skuDataItem = skuDataItem as SkuDataItem;
 
             if (skuCls.Count == 1)//count is just one, assign actual price
             {
@@ -78,7 +79,7 @@ public class PromotionEngineMain
     /// <returns></returns>
     private Root LoadPromoData()
     {
-        Root root = new Root();
+        Root ruleEngine = new Root();
         string dirPath = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName;
         string filePath = "Data//PromoTypes.json";
 
@@ -89,9 +90,9 @@ public class PromotionEngineMain
             string json = r.ReadToEnd();
 
             JObject jsonObj = JObject.Parse(json);
-            root = JsonConvert.DeserializeObject<Root>(json);//deseriealize to class objects
+            ruleEngine = JsonConvert.DeserializeObject<Root>(json);//deseriealize to class objects
         }
-        return root;
+        return ruleEngine;
     }
 
     #endregion

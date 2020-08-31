@@ -1,5 +1,5 @@
 ﻿using System;
-namespace PromoEngineLibrary.Entity
+namespace PromotionEngineMain.Entity
 {
     public class Offer
     {

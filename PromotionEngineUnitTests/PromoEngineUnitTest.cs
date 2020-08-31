@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using NUnit.Framework;
-using PromoEngineLibrary.Entity;
-using PromoEngineLibrary;
+using PromotionEngineMain.Entity;
+using PromotionEngineMain;
 namespace PromotionEngineUnitTests
 {
     [TestFixture]
@@ -21,11 +21,34 @@ namespace PromotionEngineUnitTests
         public void SKU_One_Each_ScenarioA()
         {
             //Assign
-            
+            List<SKUInputClass> lstSKUClass = new List<SKUInputClass>();
+            SKUInputClass sKUClass = new SKUInputClass();
+
+            sKUClass = new SKUInputClass()
+            {
+                Id = "A",
+                Count = 1
+            };
+            lstSKUClass.Add(sKUClass);
+
+            sKUClass = new SKUInputClass()
+            {
+                Id = "B",
+                Count = 1
+            };
+            lstSKUClass.Add(sKUClass);
+
+            sKUClass = new SKUInputClass()
+            {
+                Id = "C",
+                Count = 1
+            };
+            lstSKUClass.Add(sKUClass);
             //Act
-            
+            int output = PromotionEngineMain.PromotionEngineMain.CheckOut(lstSKUClass);
 
             //Assert
+            Assert.AreEqual(100, output);
             
 
         }
@@ -41,12 +64,36 @@ namespace PromotionEngineUnitTests
         [Test]
         public void SKU_Offer_ScenarioB()
         {
-            //Assign
-            
+           //Assign
+            List<SKUInputClass> lstSKUClass = new List<SKUInputClass>();
+            SKUInputClass sKUClass = new SKUInputClass();
+
+            sKUClass = new SKUInputClass()
+            {
+                Id = "A",
+                Count = 5
+            };
+            lstSKUClass.Add(sKUClass);
+
+            sKUClass = new SKUInputClass()
+            {
+                Id = "B",
+                Count = 5
+            };
+            lstSKUClass.Add(sKUClass);
+
+            sKUClass = new SKUInputClass()
+            {
+                Id = "C",
+                Count = 1
+            };
+            lstSKUClass.Add(sKUClass);
+
             //Act
-            
+            int output = PromotionEngineMain.PromotionEngineMain.CheckOut(lstSKUClass);
 
             //Assert
+            Assert.AreEqual(370, output);
             
 
         }
@@ -63,12 +110,42 @@ namespace PromotionEngineUnitTests
         public void SKU_Offer_ScenarioC()
         {
             //Assign
-            
+            List<SKUInputClass> lstSKUClass = new List<SKUInputClass>();
+            SKUInputClass sKUClass = new SKUInputClass();
+
+            sKUClass = new SKUInputClass()
+            {
+                Id = "A",
+                Count = 5
+            };
+            lstSKUClass.Add(sKUClass);
+
+            sKUClass = new SKUInputClass()
+            {
+                Id = "B",
+                Count = 5
+            };
+            lstSKUClass.Add(sKUClass);
+
+            sKUClass = new SKUInputClass()
+            {
+                Id = "C",
+                Count = 1
+            };
+            lstSKUClass.Add(sKUClass);
+
+            sKUClass = new SKUInputClass()
+            {
+                Id = "D",
+                Count = 1
+            };
+            lstSKUClass.Add(sKUClass);
 
             //Act
-            
+            int output = PromotionEngineMain.PromotionEngineMain.CheckOut(lstSKUClass);
 
             //Assert
+            Assert.AreEqual(280, output);
             
 
         }

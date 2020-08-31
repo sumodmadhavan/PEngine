@@ -52,7 +52,7 @@
   <ItemGroup>
     <ProjectReference Include="..\PromotionEngineMain\PromotionEngineMain.csproj">
       <Project>{BDEA9933-2969-484C-B250-823D32A3AB1A}</Project>
-      <Name>PromoEngineLibrary</Name>
+      <Name>PromotionEngineMain</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

@@ -5,8 +5,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{BDEA9933-2969-484C-B250-823D32A3AB1A}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>PromoEngineLibrary</RootNamespace>
-    <AssemblyName>PromoEngineLibrary</AssemblyName>
+    <RootNamespace>PromotionEngineMain</RootNamespace>
+    <AssemblyName>PromotionEngineMain</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -33,7 +33,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PromoEngineLibrary.cs" />
+    <Compile Include="PromotionEngineMain.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Entity\Offer.cs" />
     <Compile Include="Entity\Root.cs" />

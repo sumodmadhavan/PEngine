@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace PromoEngineLibrary.Entity
+namespace PromotionEngineMain.Entity
 {
     public class Root
     {
