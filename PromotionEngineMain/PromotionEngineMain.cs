@@ -14,26 +14,28 @@ public class PromotionEngineMain
     {
         int unitPrice = 0;
         PromotionEngineMain promotionEngineMain = new PromotionEngineMain();
-
-        Root ruleEngine = promotionEngineMain.LoadPromoData();//load the promotype config to ruleEngine object
-
-        unitPrice = promotionEngineMain.GetUnitPrice(sKUInputClass, ruleEngine);// calculate unit price based on input
+        //load the promotype config to ruleEngine object
+        Root ruleEngine = promotionEngineMain.LoadPromoData();
+        // calculate unit price based on input
+        unitPrice = promotionEngineMain.GetUnitPrice(sKUInputClass, ruleEngine);
         return unitPrice;
     }
 
-
     #region Private Methods
-
-    //Ideally we can apply a strategy Pattern but it just complicate the current problem statement.
+    /// <summary>
+    /// Get the unit price based on the rule engine.
+    /// </summary>
+    /// <returns></returns>
+    //TODO:Ideally we can apply a strategy Pattern but it just complicate the current problem statement.
+    //Ref : https://dofactory.com/net/strategy-design-pattern
     private int GetUnitPrice(List<SKUInputClass> sKUInputClass, Root ruleEngine)
     {
         int unitPrice = 0;
         //calculate Unit Price
         string promoType = string.Empty;
-        //O(n) in Time.    
+        //O(n) in Time.
         foreach (SKUInputClass skuCls in sKUInputClass)
         {
-            //SkuDataItem obj= ruleEngine.skuData.Where(s => s.id == skuCls.Id);//returns price of one item
             var priceUnit = ruleEngine.skuData.Where(s => s.id == skuCls.Id)
                             .Select(s => s.price).FirstOrDefault();//returns price of one item
             var skuDataItem = ruleEngine.skuData.Where(s => s.id == skuCls.Id).FirstOrDefault(); //Worse case O(n2)
