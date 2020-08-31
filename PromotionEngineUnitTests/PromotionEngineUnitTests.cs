@@ -5,6 +5,7 @@ using PromotionEngineMain.Entity;
 using PromotionEngineMain;
 namespace PromotionEngineUnitTests
 {
+    //Test cases for Scenario A , B and C
     [TestFixture]
     public class PromotionEngineUnitTests
     {
