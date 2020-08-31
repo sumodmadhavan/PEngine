@@ -1,0 +1,38 @@
+{
+  "skuData": [
+
+    {
+      "id": "A",
+      "price": 50,
+      "isOfferApplicable": true,
+      "offer": {
+        "count": 3,
+        "offerPrice": 130
+      },
+      "comboOffer": false
+    },
+    {
+      "id": "B",
+      "price": 30,
+      "isOfferApplicable": true,
+      "offer": {
+        "count": 2,
+        "offerPrice": 45
+      },
+      "comboOffer": false
+    },
+    {
+      "id": "C",
+      "price": 20,
+      "isOfferApplicable": false,
+      "comboOffer": true
+    },
+    {
+      "id": "D",
+      "price": 15,
+      "isOfferApplicable": false,
+      "comboOffer": true
+    }
+
+  ]
+}
