@@ -1,6 +1,9 @@
 ﻿using System;
 namespace PEngine
 {
+    /// <summary>
+    /// Get the price.
+    /// </summary>
     public abstract class SaleStrategy : IPricingStrategy
     {
         public abstract Sku Sku { get; }

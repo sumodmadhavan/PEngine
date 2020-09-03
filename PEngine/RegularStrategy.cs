@@ -1,6 +1,9 @@
 ﻿using System;
 namespace PEngine
 {
+    /// <summary>
+    /// What we call the base strategy
+    /// </summary>
     public abstract class RegularStrategy : IPricingStrategy
     {
         public abstract Sku Sku { get; }

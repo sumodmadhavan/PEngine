@@ -26,7 +26,7 @@ namespace PEngine
             }
         }
         /// <summary>
-        /// 
+        /// Get the promotions
         /// </summary>
         /// <param name="sKuInputs"></param>
         public static void GetPromotions(string sKuInputs)
