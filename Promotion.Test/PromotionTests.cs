@@ -274,7 +274,13 @@ namespace Promotion.Test
         [TestMethod]
         public void Cashier_Scenario_A()
         {
-            var cashier = new Cashier(GetPricingStrategies());
+            var pricingStrategies = new List<IPricingStrategy>()
+            {
+                new PricingStategyA(),
+                new PricingStrategyB(),
+                new PricingStrategyC()
+            };
+            var cashier = new Cashier(pricingStrategies);
             var products = new List<Sku>() { 'A', 'B','C'};
             var price = cashier.Checkout(products);
             Assert.AreEqual(100, price);
@@ -290,7 +296,13 @@ namespace Promotion.Test
         [TestMethod]
         public void Cashier_Scenario_B()
         {
-            var cashier = new Cashier(GetPricingStrategies());
+            var pricingStrategies = new List<IPricingStrategy>()
+            {
+                new PricingStategyA(),
+                new PricingStrategyB(),
+                new PricingStrategyC()
+            };
+            var cashier = new Cashier(pricingStrategies);
             var products = new List<Sku>() { 'A', 'A','A','A','A', 'B', 'B', 'B', 'B', 'B','C'};
             var price = cashier.Checkout(products);
             Assert.AreEqual(370, price);
@@ -302,13 +314,19 @@ namespace Promotion.Test
           1 * C 
           1 * D 30
           ========
-          Total 370
+          Total 280
           */
         [TestMethod]
         public void Cashier_Scenario_C()
         {
-            var cashier = new Cashier(GetPricingStrategies());
-            var products = new List<Sku>() { 'A', 'A','A','B','B','B','B','B','C','D'};
+            var pricingStrategies = new List<IPricingStrategy>()
+            {
+                new PricingStategyA(),
+                new PricingStrategyB(),
+                new PricingStrategyCandD()
+            };
+            var cashier = new Cashier(pricingStrategies);
+            var products = new List<Sku>() { 'A', 'A','A','B','B','B','B','B','&'};
             var price = cashier.Checkout(products);
             Assert.AreEqual(280, price);
         }
