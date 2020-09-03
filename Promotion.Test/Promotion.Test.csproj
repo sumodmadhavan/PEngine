@@ -22,4 +22,7 @@
   <ItemGroup>
     <Compile Remove="SkuTests.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PEngine\PEngine.csproj" />
+  </ItemGroup>
 </Project>

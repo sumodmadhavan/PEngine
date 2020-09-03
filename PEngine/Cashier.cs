@@ -21,7 +21,7 @@ namespace PEngine
                 var prods = products.Where(p => p == strat.Sku);
                 tempResult = strat.GetPrice(prods.Count());
                 Console.WriteLine(strat.Sku + "'s total :- " + tempResult);
-                result = result + tempResult;
+                result += tempResult;
             }
 
             return result;
