@@ -1,9 +1,9 @@
 ﻿using System;
 namespace PEngine
 {
-    public class SaleStrategy
+    public class Cashier
     {
-        public SaleStrategy()
+        public Cashier()
         {
         }
     }
