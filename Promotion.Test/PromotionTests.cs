@@ -263,6 +263,14 @@ namespace Promotion.Test
 
             Assert.AreEqual(30, price);
         }
+        /*
+        Scenario A
+         1 * A 50
+         1 * B 30
+         1 * C 20
+         ========
+         Total 100
+         */
         [TestMethod]
         public void Cashier_Scenario_A()
         {
@@ -271,6 +279,14 @@ namespace Promotion.Test
             var price = cashier.Checkout(products);
             Assert.AreEqual(100, price);
         }
+        /*
+        Scenario B
+         5 * A 130 + 2 * 50
+         5 * B 45 + 45  + 30
+         1 * C 20
+         ========
+         Total 370
+         */
         [TestMethod]
         public void Cashier_Scenario_B()
         {
@@ -279,6 +295,15 @@ namespace Promotion.Test
             var price = cashier.Checkout(products);
             Assert.AreEqual(370, price);
         }
+        /*
+         Scenario C
+          3 * A 130 + 2 * 50
+          5 * B 45 + 45  + 1 *  30
+          1 * C 
+          1 * D 30
+          ========
+          Total 370
+          */
         [TestMethod]
         public void Cashier_Scenario_C()
         {
