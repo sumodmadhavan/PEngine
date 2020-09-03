@@ -1,6 +1,9 @@
 ﻿using System;
 namespace PEngine
 {
+    /// <summary>
+    /// concrete strategy A
+    /// </summary>
     public class PricingStategyA : SaleStrategy
     {
         public override Sku Sku { get; } = 'A';

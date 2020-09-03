@@ -11,7 +11,11 @@ namespace PEngine
         {
             _pricingStrategies = pricingStrategies;
         }
-
+        /// <summary>
+        /// checkout of the pricing 
+        /// </summary>
+        /// <param name="products"></param>
+        /// <returns></returns>
         public double Checkout(IList<Sku> products)
         {
             double result = 0;
@@ -23,7 +27,6 @@ namespace PEngine
                 Console.WriteLine(strat.Sku + "'s total :- " + tempResult);
                 result += tempResult;
             }
-
             return result;
         }
     }

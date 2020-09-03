@@ -1,8 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-namespace PEngine
+﻿namespace PEngine
 {
+    /// <summary>
+    /// Define the SKU. 
+    /// </summary>
     public struct Sku
     {
         private readonly char _currentValue;
@@ -11,36 +11,36 @@ namespace PEngine
         {
             _currentValue = value;
         }
-
+        //
         public Sku(Sku sku)
         {
             _currentValue = sku._currentValue;
         }
-
+        //
         public static implicit operator Sku(char value)
         {
             return new Sku(value);
         }
-
+        //
         public static explicit operator char(Sku value)
         {
             return value._currentValue;
         }
-
-        public static bool operator ==(Sku sku1, Sku sku2)
+        //
+        public static bool operator ==(Sku valueX, Sku valueY)
         {
-            return sku1.Equals(sku2);
+            return valueX.Equals(valueY);
         }
-
-        public static bool operator !=(Sku sku1, Sku sku2)
+        //
+        public static bool operator !=(Sku valueX, Sku valueY)
         {
-            return !sku1.Equals(sku2);
+            return !valueX.Equals(valueY);
         }
-
+        //
         public override bool Equals(object equalityObject)
         {
-            if (equalityObject == null) { return false; }
-
+            //base case.
+            if (equalityObject == null)return false;
             Sku sku;
             try
             {
@@ -50,10 +50,12 @@ namespace PEngine
             {
                 return false;
             }
-
             return _currentValue == (char)sku;
         }
-
+        /// <summary>
+        /// get the hashcode.
+        /// </summary>
+        /// <returns></returns>
         public override int GetHashCode()
         {
             return _currentValue.GetHashCode();
